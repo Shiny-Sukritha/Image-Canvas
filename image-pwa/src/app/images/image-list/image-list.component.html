@@ -1,0 +1,11 @@
+<ion-content>
+  <div class="white-bg full-height">
+    <ion-grid *ngIf="images.length > 0">
+      <ion-row>
+        <ion-col *ngFor="let image of images" [sizeLg]="3" [sizeMd]="4" [size]="12" class="ion-text-center">
+          <img [src]="image.url" *ngIf="image?.url" [width]="image?.width" [height]="image?.height" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

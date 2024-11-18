@@ -1,5 +1,7 @@
 {
   "name": "image-pwa",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="image-conatiner mat-elevation-z2 ion-padding mobile-padding full-height">
+    <ion-grid class="ion-padding mobile-padding ion-align-items-center">
+      <ion-row class="ion-align-items-center">
+        <ion-col class="ion-text-center" [size]="isCameraOn ? 6 : 12">
+          <ion-button (click)="openCamera()">Add Image</ion-button>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center">
+          <ion-button (click)="captureImage()" *ngIf="isCameraOn">Capture Image</ion-button>
+        </ion-col>
+        <ion-col size="12" class="ion-text-center">
+          <p *ngIf="!isCameraOn && !imageCaptured">Image Captured will be shown here in the canvas!!</p>
+          <div class="mat-elevation-z2">
+            <canvas #canvas [ngClass]="isCameraOn ? 'hide-canvas' : 'canvas'">
+            </canvas>
+          </div>
+          <video #video autoplay muted *ngIf="isCameraOn" class="video"></video>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="imageCaptured" class="ion-padding mobile-padding">
+        <ion-col size-lg="6" size-md="6" size="12" class="ion-text-center">
+          <input type="number" [(ngModel)]="height" placeholder="Add Height"/>
+        </ion-col>
+        <ion-col size-lg="6" size-md="6" size="12" class="ion-text-center">
+          <input type="number" [(ngModel)]="width" placeholder="Add Width"/>
+        </ion-col>
+        <ion-col size="12" class="ion-text-center ion-padding-vertical">
+          <ion-button (click)="exportImage()">Export Image</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>  
+</ion-content>
